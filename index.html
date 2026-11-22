@@ -1,108 +1,560 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#111111">
-  <title>مكتبتي الأولى</title>
-  <style>
-    :root{--bg:#111;--panel:#1b1b1b;--gold:#d6b45c;--gold2:#f0d98f;--text:#f7f3e8;--muted:#b9b3a4}
-    *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7}
-    a{color:inherit}
-    .wrap{width:min(100% - 32px,980px);margin:auto}
-    header{border-bottom:1px solid #3a3322;background:#151515}
-    .top{padding:24px 0 20px}
-    .brand{font-size:clamp(27px,6vw,40px);font-weight:800;color:var(--gold2);margin:0}
-    .tag{color:var(--muted);margin:4px 0 0}
-    nav{display:flex;gap:10px;flex-wrap:wrap;padding:0 0 16px}
-    nav a{padding:8px 14px;border:1px solid #514322;border-radius:999px;text-decoration:none;color:var(--gold2);font-size:14px}
-    nav a:hover,.btn:hover{background:#3a301b}
-    main{padding:28px 0 48px}
-    .intro{padding:22px;border:1px solid #514322;border-radius:18px;background:linear-gradient(135deg,#211d14,#171717);margin-bottom:28px}
-    h2{color:var(--gold2);font-size:23px;margin:0 0 8px}
-    .intro p,.muted{color:var(--muted);margin:0}
-    .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:28px 0 14px}
-    .count{font-size:13px;color:var(--muted)}
-    .books{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-    .book{background:var(--panel);border:1px solid #393124;border-radius:16px;padding:18px;display:flex;flex-direction:column;min-height:225px}
-    .cover{height:90px;border-radius:12px;background:#292315;display:grid;place-items:center;color:var(--gold);font-size:34px;margin-bottom:14px}
-    .book h3{margin:0 0 5px;color:#fff;font-size:18px}
-    .book p{margin:0 0 16px;color:var(--muted);font-size:14px;flex:1}
-    .actions{display:flex;gap:8px;flex-wrap:wrap}
-    .btn{display:inline-block;text-decoration:none;text-align:center;border:1px solid var(--gold);border-radius:10px;padding:8px 12px;color:var(--gold2);font-size:14px}
-    .btn.primary{background:var(--gold);color:#17130a;font-weight:700}
-    .empty{border:1px dashed #64532c;border-radius:14px;padding:22px;color:var(--muted);text-align:center}
-    .videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-    .video{background:var(--panel);border:1px solid #393124;border-radius:16px;padding:14px}
-    .video-frame{aspect-ratio:16/9;background:#090909;border-radius:10px;overflow:hidden}
-    .video-frame iframe{width:100%;height:100%;border:0}
-    .video h3{margin:10px 0 0;font-size:16px}
-    footer{border-top:1px solid #393124;padding:20px 0;color:var(--muted);font-size:13px;text-align:center}
-    @media(min-width:700px){.top{padding-top:30px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#111111">
+<title>مكتبتي الأولى</title>
+
+<style>
+:root {
+  --bg:#111;
+  --card:#1c1c1c;
+  --gold:#d6b45c;
+  --light:#f0d98f;
+  --text:#fff;
+  --muted:#aaa;
+}
+
+* {box-sizing:border-box}
+
+body {
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Tahoma,Arial,sans-serif;
+  line-height:1.7;
+}
+
+header {
+  background:#171717;
+  border-bottom:1px solid #554522;
+  padding:25px 16px;
+}
+
+.container {
+  width:min(100% - 28px,1050px);
+  margin:auto;
+}
+
+.brand {
+  color:var(--light);
+  font-size:32px;
+  font-weight:bold;
+  margin:0;
+}
+
+header p {color:var(--muted);margin:5px 0}
+
+nav {
+  display:flex;
+  gap:10px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+nav a {
+  color:var(--light);
+  border:1px solid #69552c;
+  border-radius:20px;
+  padding:6px 16px;
+  text-decoration:none;
+}
+
+main {padding:25px 0 45px}
+
+.welcome {
+  background:linear-gradient(120deg,#302718,#191919);
+  border:1px solid #69552c;
+  padding:22px;
+  border-radius:16px;
+  margin-bottom:28px;
+}
+
+h2 {color:var(--light);margin:0 0 14px}
+.muted {color:var(--muted)}
+
+.search-box {
+  width:100%;
+  padding:14px;
+  background:#222;
+  border:1px solid #69552c;
+  border-radius:10px;
+  color:white;
+  font-size:16px;
+  margin:12px 0;
+}
+
+select {
+  background:#222;
+  color:white;
+  border:1px solid #69552c;
+  padding:12px;
+  border-radius:9px;
+  width:100%;
+  font-size:15px;
+  margin-bottom:18px;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+
+.card {
+  background:var(--card);
+  border:1px solid #393124;
+  border-radius:14px;
+  padding:15px;
+  overflow:hidden;
+}
+
+.cover {
+  height:120px;
+  background:#292315;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  color:var(--gold);
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.card h3 {margin:5px 0;color:var(--light)}
+.card p {color:var(--muted);font-size:13px}
+
+.tag {
+  color:var(--gold);
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.actions {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.btn {
+  border:1px solid var(--gold);
+  background:transparent;
+  color:var(--light);
+  padding:8px 12px;
+  border-radius:8px;
+  text-decoration:none;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.btn.primary {
+  background:var(--gold);
+  color:#17130a;
+  font-weight:bold;
+}
+
+section {margin-bottom:38px}
+
+.video-thumb {
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:9px;
+  cursor:pointer;
+  background:#080808;
+}
+
+.video-player {
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+  border-radius:9px;
+}
+
+.video-card h3 {font-size:15px}
+
+.empty {
+  color:var(--muted);
+  text-align:center;
+  padding:25px;
+  border:1px dashed #69552c;
+  border-radius:12px;
+  grid-column:1/-1;
+}
+
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#000e;
+  z-index:1000;
+  padding:15px;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-content {
+  width:100%;
+  max-width:850px;
+  background:#191919;
+  padding:12px;
+  border:1px solid var(--gold);
+  border-radius:12px;
+}
+
+.modal iframe {
+  width:100%;
+  height:70vh;
+  border:0;
+  border-radius:8px;
+}
+
+.close {
+  color:var(--light);
+  font-size:25px;
+  cursor:pointer;
+  text-align:left;
+  padding:0 10px;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  border-top:1px solid #493b20;
+  color:var(--muted);
+  font-size:13px;
+}
+</style>
 </head>
+
 <body>
+
 <header>
-  <div class="wrap">
-    <div class="top">
-      <h1 class="brand">مكتبتي الأولى</h1>
-      <p class="tag">مساحة للقراءة والمعرفة والمشاهدة</p>
-    </div>
-    <nav aria-label="التنقل">
-      <a href="#books">الكتب</a>
-      <a href="#videos">الفيديوهات</a>
-      <a href="#about">عن المكتبة</a>
-    </nav>
-  </div>
+<div class="container">
+<h1 class="brand">مكتبتي الأولى</h1>
+<p>مساحة للقراءة والمعرفة والمشاهدة</p>
+
+<nav>
+<a href="#books">الكتب</a>
+<a href="#videos">الفيديوهات</a>
+<a href="#about">عن المكتبة</a>
+</nav>
+</div>
 </header>
 
-<main class="wrap">
-  <section class="intro">
-    <h2>أهلاً بك في مكتبتي الأولى</h2>
-    <p>تصفح الكتب واقرأها مباشرة، أو افتح رابط التحميل. ويمكنك مشاهدة المقاطع من داخل الموقع.</p>
-  </section>
+<main class="container">
 
-  <section id="books">
-    <div class="section-head">
-      <h2>مكتبة الكتب</h2>
-      <span class="count">أضف كتبك بتعديل القائمة في الملف</span>
-    </div>
-    <div class="books" id="book-list">
-      <!-- نموذج كتاب: انسخ article وعدّل العنوان والوصف والرابطين.
-           رابط القراءة: رابط مشاركة Google Drive.
-           رابط التحميل: رابط Drive بصيغة download?id=FILE_ID -->
-      <article class="book">
-        <div class="cover" aria-hidden="true">📖</div>
-        <h3>كتاب تجريبي</h3>
-        <p>هذا عنصر تجريبي. استبدله بعنوان كتابك ووصفه وروابط Google Drive.</p>
-        <div class="actions">
-          <a class="btn primary" href="https://drive.google.com/" target="_blank" rel="noopener">قراءة الكتاب</a>
-          <a class="btn" href="https://drive.google.com/" target="_blank" rel="noopener">تحميل PDF</a>
-        </div>
-      </article>
-    </div>
-  </section>
+<div class="welcome">
+<h2>أهلاً بك في مكتبتي الأولى</h2>
+<p>اكتشف الكتب، اقرأ مباشرة، وشاهد مجموعة من الفيديوهات.</p>
+</div>
 
-  <section id="videos">
-    <div class="section-head">
-      <h2>الفيديوهات</h2>
-      <span class="count">أضف فيديوهات YouTube عند الحاجة</span>
-    </div>
-    <div class="videos">
-      <div class="empty">لا توجد فيديوهات مضافة حالياً. أضف فيديو YouTube باستبدال هذا المربع بكود الفيديو الموضح في ملف التعليمات.</div>
-    </div>
-  </section>
+<input
+id="search"
+class="search-box"
+type="search"
+placeholder="ابحث عن كتاب أو فيديو..."
+aria-label="البحث">
 
-  <section id="about" style="margin-top:32px">
-    <h2>عن المكتبة</h2>
-    <p class="muted">مكتبتي الأولى — مكتبة رقمية شخصية لعرض الكتب والمحتوى المرئي.</p>
-  </section>
+<section id="books">
+
+<h2>📚 مكتبة الكتب</h2>
+
+<label for="category" class="muted">تصنيف الكتب</label>
+
+<select id="category">
+<option value="all">جميع الكتب</option>
+<option value="غير مصنف">غير مصنف</option>
+</select>
+
+<div class="grid" id="book-list"></div>
+
+</section>
+
+<section id="videos">
+
+<h2>🎬 مكتبة الفيديوهات</h2>
+
+<p class="muted">اضغط على صورة الفيديو لتشغيله.</p>
+
+<div class="grid" id="video-list"></div>
+
+</section>
+
+<section id="about">
+<h2>عن المكتبة</h2>
+<p class="muted">
+مكتبتي الأولى منصة رقمية للكتب والمحتوى المرئي،
+تهدف إلى توفير المعرفة في مكان واحد.
+</p>
+</section>
+
 </main>
 
+<div class="modal" id="reader">
+<div class="modal-content">
+<div class="close" onclick="closeReader()">✕ إغلاق</div>
+<iframe id="pdf-frame" title="قارئ الكتاب"></iframe>
+</div>
+</div>
+
 <footer>
-  <div class="wrap">© <span id="year"></span> مكتبتي الأولى. جميع الحقوق محفوظة لأصحاب المحتوى.</div>
+© <span id="year"></span> مكتبتي الأولى
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script>
+
+// =================================
+// بيانات الكتب
+// =================================
+
+const books = [
+{
+ title:"كتاب 1",
+ author:"غير محدد",
+ description:"الكتاب الأول في مكتبتي.",
+ category:"غير مصنف",
+ id:"17XbbLSUcdgXGZKjLUStlJ4c_mIJlW76K"
+},
+{
+ title:"كتاب 2",
+ author:"غير محدد",
+ description:"الكتاب الثاني في مكتبتي.",
+ category:"غير مصنف",
+ id:"117spmadzidsgjjzVkgjvsorc9KU9KFsq"
+}
+];
+
+// =================================
+// بيانات الفيديوهات
+// =================================
+
+const videoIds = [
+"7pGcGiIMT8I",
+"zLSKt8BVCSQ",
+"mNL2CLX8gv0",
+"WDtrfRuvDdc",
+"Sw0WKR9uZIA",
+"YIVnUda3C9Q",
+"NmKNWY_bVIY",
+"aX8DF3sqB34",
+"A7ZXD4ItFwA",
+"C8Xd1LV2oA8",
+"UqrzFi76Dpc",
+"LYY7CERpVfc",
+"r4igfI4ersQ",
+"j9MOF4RZoEw",
+"DOzJ8-azmZg",
+"xlHd7jC4ds4",
+"fI2TLZWZsUs",
+"0_o1Pl8tsdE",
+"S0EliIgvPJw",
+"J24A4J4CnsE",
+"E1tHivDl2gM",
+"Pt3JJBU8p_A",
+"6UyVMQ3J2sw",
+"Khd4mvlDW1o",
+"yU1G20Mr0EE",
+"RmnsReEFNFw",
+"87CKz_igKAA",
+"KGGuWmxTNJ0",
+"Rt5grZXnggM",
+"_30TKQ3zARQ",
+"l0zvcY2kjeg",
+"4kzXTmDLxaU",
+"ms3C80owkIU",
+"iLs4RIEziqs",
+"2yv02_zqDgY",
+"yJbwVIXNsmY",
+"Lw3XoomUYVI",
+"gNQ9F_l2jAc",
+"WvBoU6ZRfNI",
+"bN6aAmhG89M",
+"oB7jHtws3BM",
+"6LVlorGEsJ4",
+"Swd6NyFx98I",
+"aoxJ6bbkKj0",
+"pAzGInnecHU",
+"Wo9fGADYlRU",
+"VwIHT5YYdlU",
+"s1gpG7f7gTw",
+"GYD4dwO77tU",
+"SfJ3EqOV0xQ",
+"J2uMKtABgys"
+];
+
+// =================================
+// عرض الكتب
+// =================================
+
+const bookList = document.getElementById("book-list");
+
+function showBooks() {
+
+ const query = document.getElementById("search").value.toLowerCase();
+ const category = document.getElementById("category").value;
+
+ const filtered = books.filter(book => {
+
+  const matchText =
+   (book.title + book.author + book.description)
+   .toLowerCase().includes(query);
+
+  const matchCategory =
+   category === "all" || book.category === category;
+
+  return matchText && matchCategory;
+ });
+
+ bookList.innerHTML = "";
+
+ if (!filtered.length) {
+  bookList.innerHTML =
+   '<div class="empty">لا توجد كتب مطابقة للبحث.</div>';
+  return;
+ }
+
+ filtered.forEach(book => {
+
+  const card = document.createElement("article");
+  card.className = "card";
+
+  const cover = document.createElement("div");
+  cover.className = "cover";
+  cover.textContent = "📖";
+
+  const title = document.createElement("h3");
+  title.textContent = book.title;
+
+  const tag = document.createElement("div");
+  tag.className = "tag";
+  tag.textContent = book.category;
+
+  const description = document.createElement("p");
+  description.textContent = book.description;
+
+  const actions = document.createElement("div");
+  actions.className = "actions";
+
+  const read = document.createElement("button");
+  read.className = "btn primary";
+  read.textContent = "قراءة الكتاب";
+  read.onclick = () => openReader(book.id);
+
+  const download = document.createElement("a");
+  download.className = "btn";
+  download.textContent = "تحميل PDF";
+  download.href =
+   "https://drive.google.com/uc?export=download&id=" + book.id;
+  download.target = "_blank";
+  download.rel = "noopener";
+
+  actions.append(read,download);
+  card.append(cover,title,tag,description,actions);
+  bookList.appendChild(card);
+
+ });
+}
+
+// =================================
+// قارئ الكتب
+// =================================
+
+function openReader(id) {
+
+ document.getElementById("pdf-frame").src =
+  "https://drive.google.com/file/d/" + id + "/preview";
+
+ document.getElementById("reader").style.display = "flex";
+}
+
+function closeReader() {
+ document.getElementById("reader").style.display = "none";
+ document.getElementById("pdf-frame").src = "";
+}
+
+// =================================
+// عرض الفيديوهات
+// =================================
+
+const videoList = document.getElementById("video-list");
+
+function showVideos() {
+
+ const query = document.getElementById("search").value.toLowerCase();
+
+ videoList.innerHTML = "";
+
+ const filtered = videoIds.filter((id,index) =>
+  ("مقطع " + (index+1)).toLowerCase().includes(query)
+ );
+
+ if (!filtered.length) {
+  videoList.innerHTML =
+   '<div class="empty">لا توجد فيديوهات مطابقة.</div>';
+  return;
+ }
+
+ filtered.forEach(id => {
+
+  const index = videoIds.indexOf(id);
+
+  const card = document.createElement("article");
+  card.className = "card video-card";
+
+  const thumb = document.createElement("img");
+  thumb.className = "video-thumb";
+  thumb.src = "https://img.youtube.com/vi/" + id + "/hqdefault.jpg";
+  thumb.alt = "صورة مقطع " + (index+1);
+  thumb.loading = "lazy";
+
+  thumb.onclick = () => {
+
+   const frame = document.createElement("iframe");
+   frame.className = "video-player";
+   frame.src =
+    "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1";
+   frame.title = "مقطع " + (index+1);
+   frame.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+   frame.allowFullscreen = true;
+   frame.loading = "lazy";
+
+   thumb.replaceWith(frame);
+  };
+
+  const title = document.createElement("h3");
+  title.textContent = "مقطع " + (index+1);
+
+  card.append(thumb,title);
+  videoList.appendChild(card);
+
+ });
+}
+
+// =================================
+// البحث والتصنيفات
+// =================================
+
+document.getElementById("search").addEventListener("input", () => {
+ showBooks();
+ showVideos();
+});
+
+document.getElementById("category").addEventListener("change", showBooks);
+
+// =================================
+// التشغيل الأول
+// =================================
+
+showBooks();
+showVideos();
+
+document.getElementById("year").textContent =
+ new Date().getFullYear();
+
+</script>
+
 </body>
 </html>
