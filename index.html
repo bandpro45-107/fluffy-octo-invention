@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>مكتبتي الأولى</title>
+  <style>
+    :root{--bg:#111;--panel:#1b1b1b;--gold:#d6b45c;--gold2:#f0d98f;--text:#f7f3e8;--muted:#b9b3a4}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.7}
+    a{color:inherit}
+    .wrap{width:min(100% - 32px,980px);margin:auto}
+    header{border-bottom:1px solid #3a3322;background:#151515}
+    .top{padding:24px 0 20px}
+    .brand{font-size:clamp(27px,6vw,40px);font-weight:800;color:var(--gold2);margin:0}
+    .tag{color:var(--muted);margin:4px 0 0}
+    nav{display:flex;gap:10px;flex-wrap:wrap;padding:0 0 16px}
+    nav a{padding:8px 14px;border:1px solid #514322;border-radius:999px;text-decoration:none;color:var(--gold2);font-size:14px}
+    nav a:hover,.btn:hover{background:#3a301b}
+    main{padding:28px 0 48px}
+    .intro{padding:22px;border:1px solid #514322;border-radius:18px;background:linear-gradient(135deg,#211d14,#171717);margin-bottom:28px}
+    h2{color:var(--gold2);font-size:23px;margin:0 0 8px}
+    .intro p,.muted{color:var(--muted);margin:0}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:28px 0 14px}
+    .count{font-size:13px;color:var(--muted)}
+    .books{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+    .book{background:var(--panel);border:1px solid #393124;border-radius:16px;padding:18px;display:flex;flex-direction:column;min-height:225px}
+    .cover{height:90px;border-radius:12px;background:#292315;display:grid;place-items:center;color:var(--gold);font-size:34px;margin-bottom:14px}
+    .book h3{margin:0 0 5px;color:#fff;font-size:18px}
+    .book p{margin:0 0 16px;color:var(--muted);font-size:14px;flex:1}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    .btn{display:inline-block;text-decoration:none;text-align:center;border:1px solid var(--gold);border-radius:10px;padding:8px 12px;color:var(--gold2);font-size:14px}
+    .btn.primary{background:var(--gold);color:#17130a;font-weight:700}
+    .empty{border:1px dashed #64532c;border-radius:14px;padding:22px;color:var(--muted);text-align:center}
+    .videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .video{background:var(--panel);border:1px solid #393124;border-radius:16px;padding:14px}
+    .video-frame{aspect-ratio:16/9;background:#090909;border-radius:10px;overflow:hidden}
+    .video-frame iframe{width:100%;height:100%;border:0}
+    .video h3{margin:10px 0 0;font-size:16px}
+    footer{border-top:1px solid #393124;padding:20px 0;color:var(--muted);font-size:13px;text-align:center}
+    @media(min-width:700px){.top{padding-top:30px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="top">
+      <h1 class="brand">مكتبتي الأولى</h1>
+      <p class="tag">مساحة للقراءة والمعرفة والمشاهدة</p>
+    </div>
+    <nav aria-label="التنقل">
+      <a href="#books">الكتب</a>
+      <a href="#videos">الفيديوهات</a>
+      <a href="#about">عن المكتبة</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h2>أهلاً بك في مكتبتي الأولى</h2>
+    <p>تصفح الكتب واقرأها مباشرة، أو افتح رابط التحميل. ويمكنك مشاهدة المقاطع من داخل الموقع.</p>
+  </section>
+
+  <section id="books">
+    <div class="section-head">
+      <h2>مكتبة الكتب</h2>
+      <span class="count">أضف كتبك بتعديل القائمة في الملف</span>
+    </div>
+    <div class="books" id="book-list">
+      <!-- نموذج كتاب: انسخ article وعدّل العنوان والوصف والرابطين.
+           رابط القراءة: رابط مشاركة Google Drive.
+           رابط التحميل: رابط Drive بصيغة download?id=FILE_ID -->
+      <article class="book">
+        <div class="cover" aria-hidden="true">📖</div>
+        <h3>كتاب تجريبي</h3>
+        <p>هذا عنصر تجريبي. استبدله بعنوان كتابك ووصفه وروابط Google Drive.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://drive.google.com/" target="_blank" rel="noopener">قراءة الكتاب</a>
+          <a class="btn" href="https://drive.google.com/" target="_blank" rel="noopener">تحميل PDF</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="videos">
+    <div class="section-head">
+      <h2>الفيديوهات</h2>
+      <span class="count">أضف فيديوهات YouTube عند الحاجة</span>
+    </div>
+    <div class="videos">
+      <div class="empty">لا توجد فيديوهات مضافة حالياً. أضف فيديو YouTube باستبدال هذا المربع بكود الفيديو الموضح في ملف التعليمات.</div>
+    </div>
+  </section>
+
+  <section id="about" style="margin-top:32px">
+    <h2>عن المكتبة</h2>
+    <p class="muted">مكتبتي الأولى — مكتبة رقمية شخصية لعرض الكتب والمحتوى المرئي.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> مكتبتي الأولى. جميع الحقوق محفوظة لأصحاب المحتوى.</div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
