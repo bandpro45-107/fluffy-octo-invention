@@ -1,11 +1,57 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#111111">
-<title>النبأ العظيم </title>
+<title>النبأ العظيم | مكتبة الفرقان وأسماء الله الحسنى</title>
+
+<meta name="description" content="النبأ العظيم: مكتبة رقمية تضم كتاب الفرقان النذير وكتاب أسماء الله الحسنى شرح وإحصاء، مع مقاطع فيديو لشرح المحتوى والاطلاع عليه.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mand0bcom.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ar_SA">
+<meta property="og:title" content="النبأ العظيم | مكتبة الفرقان وأسماء الله الحسنى">
+<meta property="og:description" content="تصفح كتاب الفرقان النذير وكتاب أسماء الله الحسنى شرح وإحصاء، وشاهد المقاطع المرتبطة بهما.">
+<meta property="og:url" content="https://mand0bcom.com/">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "النبأ العظيم",
+  "url": "https://mand0bcom.com/",
+  "inLanguage": "ar",
+  "description": "مكتبة رقمية تضم كتاب الفرقان النذير وكتاب أسماء الله الحسنى شرح وإحصاء، إضافة إلى مقاطع فيديو مرتبطة بمحتوى المكتبة.",
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "كتب المكتبة",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Book",
+          "name": "الفرقان النذير",
+          "description": "كتاب الفرقان النذير.",
+          "url": "https://drive.google.com/file/d/17XbbLSUcdgXGZKjLUStlJ4c_mIJlW76K/view"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Book",
+          "name": "أسماء الله الحسنى شرح وإحصاء",
+          "description": "كتاب أسماء الله الحسنى شرح وإحصاء.",
+          "url": "https://drive.google.com/file/d/117spmadzidsgjjzVkgjvsorc9KU9KFsq/view"
+        }
+      }
+    ]
+  }
+}
+</script>
 
 <style>
 :root {
@@ -232,8 +278,8 @@ footer {
 
 <header>
 <div class="container">
-<h1 class="brand"> النبأ العظيم  </h1>
-<p>  «لا تقوم الساعة حتى يخرج رجل من قحطان يسوق الناس بعصاه» حديث صحيح رواه البخاري ومسلم عن أبي هريرة رضي الله عنه، وهو من علامات الساعة.</p>
+<h1 class="brand"> النبأ العظيم </h1>
+<p> «لا تقوم الساعة حتى يخرج رجل من قحطان يسوق الناس بعصاه» حديث صحيح رواه البخاري ومسلم عن أبي هريرة رضي الله عنه، وهو من علامات الساعة.</p>
 
 <nav>
 <a href="#books">الكتب</a>
@@ -285,8 +331,7 @@ aria-label="البحث">
 
 <section id="about">
 <h2>عن المكتبة</h2>
-<p class="muted">كل المحتوى الخاص بأبو محمد يتكلم عن شرح كتاب الفرقان وأسماء الله الحسنى 
-</p>
+<p class="muted">كل المحتوى الخاص بأبو محمد يتكلم عن شرح كتاب الفرقان وأسماء الله الحسنى</p>
 </section>
 
 </main>
@@ -304,10 +349,7 @@ aria-label="البحث">
 
 <script>
 
-// =================================
 // بيانات الكتب
-// =================================
-
 const books = [
 {
  title:" الفرقان النذير",
@@ -325,10 +367,7 @@ const books = [
 }
 ];
 
-// =================================
 // بيانات الفيديوهات
-// =================================
-
 const videoIds = [
 "7pGcGiIMT8I",
 "zLSKt8BVCSQ",
@@ -383,19 +422,14 @@ const videoIds = [
 "J2uMKtABgys"
 ];
 
-// =================================
 // عرض الكتب
-// =================================
-
 const bookList = document.getElementById("book-list");
 
 function showBooks() {
-
  const query = document.getElementById("search").value.toLowerCase();
  const category = document.getElementById("category").value;
 
  const filtered = books.filter(book => {
-
   const matchText =
    (book.title + book.author + book.description)
    .toLowerCase().includes(query);
@@ -415,7 +449,6 @@ function showBooks() {
  }
 
  filtered.forEach(book => {
-
   const card = document.createElement("article");
   card.className = "card";
 
@@ -452,16 +485,11 @@ function showBooks() {
   actions.append(read,download);
   card.append(cover,title,tag,description,actions);
   bookList.appendChild(card);
-
  });
 }
 
-// =================================
 // قارئ الكتب
-// =================================
-
 function openReader(id) {
-
  document.getElementById("pdf-frame").src =
   "https://drive.google.com/file/d/" + id + "/preview";
 
@@ -473,16 +501,11 @@ function closeReader() {
  document.getElementById("pdf-frame").src = "";
 }
 
-// =================================
 // عرض الفيديوهات
-// =================================
-
 const videoList = document.getElementById("video-list");
 
 function showVideos() {
-
  const query = document.getElementById("search").value.toLowerCase();
-
  videoList.innerHTML = "";
 
  const filtered = videoIds.filter((id,index) =>
@@ -496,7 +519,6 @@ function showVideos() {
  }
 
  filtered.forEach(id => {
-
   const index = videoIds.indexOf(id);
 
   const card = document.createElement("article");
@@ -509,7 +531,6 @@ function showVideos() {
   thumb.loading = "lazy";
 
   thumb.onclick = () => {
-
    const frame = document.createElement("iframe");
    frame.className = "video-player";
    frame.src =
@@ -519,7 +540,6 @@ function showVideos() {
     "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
    frame.allowFullscreen = true;
    frame.loading = "lazy";
-
    thumb.replaceWith(frame);
   };
 
@@ -528,14 +548,10 @@ function showVideos() {
 
   card.append(thumb,title);
   videoList.appendChild(card);
-
  });
 }
 
-// =================================
 // البحث والتصنيفات
-// =================================
-
 document.getElementById("search").addEventListener("input", () => {
  showBooks();
  showVideos();
@@ -543,17 +559,15 @@ document.getElementById("search").addEventListener("input", () => {
 
 document.getElementById("category").addEventListener("change", showBooks);
 
-// =================================
 // التشغيل الأول
-// =================================
-
 showBooks();
 showVideos();
 
 document.getElementById("year").textContent =
  new Date().getFullYear();
- 
+
 </script>
+
 <div style="text-align: center; margin: 20px 0; color: #ffffff; font-family: inherit; font-size: 16px;">
   <span id="busuanzi_container_site_uv" style="display:none;">
     عدد الزوار: <span id="busuanzi_value_site_uv" style="font-weight: bold; color: #4ade80;"></span>
@@ -561,6 +575,6 @@ document.getElementById("year").textContent =
 </div>
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 </body>
 </html>
-
