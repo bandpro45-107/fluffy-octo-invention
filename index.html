@@ -643,5 +643,83 @@ document.getElementById("year").textContent =
 
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+  
+<!-- روابط التواصل الاجتماعي -->
+<div class="social-section">
+  <p>تابعونا عبر منصات التواصل الاجتماعي</p>
+
+  <div class="social-icons">
+
+    <a href="https://www.youtube.com/channel/UCpVV5sk92pSI7b2PEfwxh-w"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="قناة اليوتيوب"
+       class="social-link youtube">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/>
+      </svg>
+    </a>
+
+    <a href="https://www.facebook.com/share/1HEpakYFSW/"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="حساب الفيسبوك"
+       class="social-link facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M24 12.1A12 12 0 1 0 10.1 24v-8.4H7.1v-3.5h3V9.5c0-3 1.8-4.7 4.5-4.7 1.3 0 2.6.2 2.6.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.3h3.4l-.5 3.5h-2.9V24A12 12 0 0 0 24 12.1Z"/>
+      </svg>
+    </a>
+
+  </div>
+</div>
+
+<style>
+.social-section {
+  text-align: center;
+  margin: 35px 0 25px;
+  color: #d4af37;
+}
+
+.social-section p {
+  margin-bottom: 16px;
+  font-size: 17px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-link {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  transition: transform 0.2s;
+}
+
+.social-link:hover {
+  transform: scale(1.12);
+}
+
+.social-link svg {
+  width: 25px;
+  height: 25px;
+}
+
+.youtube {
+  background: #e62117;
+}
+
+.facebook {
+  background: #1877f2;
+}
+</style>
+
 </body>
 </html>
